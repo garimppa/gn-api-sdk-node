@@ -14,8 +14,8 @@ class Gerencianet {
 			Object.assign(methods, constants.APIS[api].ENDPOINTS)
 		})
 
-		Object.keys(methods).forEach(function (api) {
-			Gerencianet.prototype[api] = function (params, body) {
+		Object.keys(methods).forEach((api) => {
+			this[api] = function (params, body) {
 				let endpoints = new Endpoints(options, constants)
 				return endpoints.run(api, params, body)
 			}
